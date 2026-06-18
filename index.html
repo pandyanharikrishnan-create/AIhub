@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" rel="stylesheet" />
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -1147,7 +1148,30 @@
     .footer-grid { grid-template-columns: 1fr; }
     .cta-box { padding: 40px 24px; }
     .footer-bottom { flex-direction: column; text-align: center; }
-  }
+  } 
+  
+
+.Orbit {
+  position: absolute;
+  inset: 0;
+  animation: spin 8s linear infinite;
+}
+
+.orbit.reverse {
+  animation-direction: reverse;
+  animation-duration: 12s;
+}
+
+.orbit-dots {
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 0 0 10px currentColor;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 </style>
 <!-- ═══════════════ MODAL STYLES ═══════════════ -->
 <style>
@@ -1420,6 +1444,36 @@
   .cm-toggle-group { gap: 8px; }
   .cm-toggle-label { padding: 9px 14px; font-size: 13px; }
 }
+
+/* ─── SECTION 3D VISUAL CANVASES ─── */
+.sec-visual {
+  position: relative;
+  isolation: isolate;
+}
+.sec-visual-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.85;
+}
+.sec-visual > .container {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 768px) {
+  .sec-visual-canvas { opacity: 0.55; }
+}
+
+/* ─── AOS TUNING ─── */
+[data-aos] {
+  pointer-events: auto;
+}
+.aos-init[data-aos][data-aos].aos-animate {
+  pointer-events: auto;
+}
 </style>
 
 
@@ -1538,25 +1592,25 @@
 </section>
 
 <!-- ═══════════════ STATS ═══════════════ -->
-<section id="stats">
+<section id="stats" class="sec-visual">
   <div class="container">
-    <div style="text-align:center;margin-bottom:48px;">
+    <div style="text-align:center;margin-bottom:48px;" data-aos="fade-up">
       <h2 class="section-title">Trusted by Future Innovators</h2>
     </div>
     <div class="stats-grid">
-      <div class="stat-item">
+      <div class="stat-item" data-aos="fade-up" data-aos-delay="0">
         <div class="stat-num-big">1000+</div>
         <div class="stat-label-big">Students Trained</div>
       </div>
-      <div class="stat-item">
+      <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
         <div class="stat-num-big">50+</div>
         <div class="stat-label-big">Practical Projects</div>
       </div>
-      <div class="stat-item">
+      <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
         <div class="stat-num-big">25+</div>
         <div class="stat-label-big">Industry Modules</div>
       </div>
-      <div class="stat-item">
+      <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
         <div class="stat-num-big">95%</div>
         <div class="stat-label-big">Student Satisfaction</div>
       </div>
@@ -1567,10 +1621,11 @@
 <div class="gradient-line"></div>
 
 <!-- ═══════════════ ABOUT ═══════════════ -->
-<section id="about">
+<section id="about" class="sec-visual">
+  <canvas class="sec-visual-canvas" id="canvas-about"></canvas>
   <div class="container">
     <div class="about-grid">
-      <div>
+      <div data-aos="fade-right">
         <span class="section-label">About AI Hub</span>
         <h2 class="section-title">Learn AI Skills That Actually Matter</h2>
         <p style="font-family:'Outfit',sans-serif;font-size:16px;color:var(--text-muted);line-height:1.7;margin-bottom:20px;">
@@ -1588,7 +1643,7 @@
           <div class="about-feature"><span class="dot"></span>Career-Oriented Training</div>
         </div>
       </div>
-      <div class="about-visual">
+      <div class="about-visual" data-aos="fade-left">
         <div class="about-card">
           <div class="about-terminal">
             <div class="terminal-line" style="margin-bottom:12px;">
@@ -1626,40 +1681,41 @@
 </section>
 
 <!-- ═══════════════ WHY CHOOSE US ═══════════════ -->
-<section id="why">
+<section id="why" class="sec-visual">
+  <canvas class="sec-visual-canvas" id="canvas-why"></canvas>
   <div class="container">
-    <div class="text-center">
+    <div class="text-center" data-aos="fade-up">
       <span class="section-label">Our Advantage</span>
       <h2 class="section-title">Why Learn with AI Hub?</h2>
       <p class="section-desc">Everything you need to master AI and build skills that matter in the real world.</p>
     </div>
     <div class="why-grid">
-      <div class="why-card">
+      <div class="why-card" data-aos="fade-up" data-aos-delay="0">
         <div class="why-icon">🔨</div>
         <div class="why-title">Learn by Building</div>
         <p class="why-desc">Go beyond theory. Build practical AI projects and gain hands-on experience from day one.</p>
       </div>
-      <div class="why-card">
+      <div class="why-card" data-aos="fade-up" data-aos-delay="100">
         <div class="why-icon">🎓</div>
         <div class="why-title">Expert-Led Training</div>
         <p class="why-desc">Learn from mentors who understand real-world AI tools, workflows, and implementation.</p>
       </div>
-      <div class="why-card">
+      <div class="why-card" data-aos="fade-up" data-aos-delay="200">
         <div class="why-icon">🏭</div>
         <div class="why-title">Industry-Focused Curriculum</div>
         <p class="why-desc">Our courses are designed around real market demands and practical use cases.</p>
       </div>
-      <div class="why-card">
+      <div class="why-card" data-aos="fade-up" data-aos-delay="0">
         <div class="why-icon">📱</div>
         <div class="why-title">Flexible Learning</div>
         <p class="why-desc">Learn anytime and anywhere with our LMS platform designed for modern learners.</p>
       </div>
-      <div class="why-card">
+      <div class="why-card" data-aos="fade-up" data-aos-delay="100">
         <div class="why-icon">🚀</div>
         <div class="why-title">Real Projects & Assignments</div>
         <p class="why-desc">Practice your skills through guided projects, challenges, and implementation exercises.</p>
       </div>
-      <div class="why-card">
+      <div class="why-card" data-aos="fade-up" data-aos-delay="200">
         <div class="why-icon">🏆</div>
         <div class="why-title">Certification & Growth</div>
         <p class="why-desc">Receive recognized completion certificates and strengthen your professional profile.</p>
@@ -1669,16 +1725,17 @@
 </section>
 
 <!-- ═══════════════ COURSES ═══════════════ -->
-<section id="courses">
+<section id="courses" class="sec-visual">
+  
   <div class="container">
-    <div class="text-center">
+    <div class="text-center" data-aos="fade-up">
       <span class="section-label">Programs</span>
       <h2 class="section-title">Explore Our AI Programs</h2>
       <p class="section-desc">From beginner foundations to advanced applications — find the right path for your goals.</p>
     </div>
     <div class="courses-grid">
 
-      <div class="course-card">
+      <div class="course-card" data-aos="fade-up" data-aos-delay="0">
         <div class="course-thumb course-thumb-1">
           <div class="glow-circle" style="background:rgba(168,85,247,0.5);top:20px;left:20px;width:80px;height:80px;"></div>
           🧠
@@ -1697,7 +1754,7 @@
         </div>
       </div>
 
-      <div class="course-card">
+      <div class="course-card" data-aos="fade-up" data-aos-delay="100">
         <div class="course-thumb course-thumb-2">
           <div class="glow-circle" style="background:rgba(0,242,255,0.4);top:20px;right:20px;width:80px;height:80px;"></div>
           ✍️
@@ -1716,7 +1773,7 @@
         </div>
       </div>
 
-      <div class="course-card">
+      <div class="course-card" data-aos="fade-up" data-aos-delay="200">
         <div class="course-thumb course-thumb-3">
           <div class="glow-circle" style="background:rgba(168,85,247,0.5);bottom:10px;right:20px;width:80px;height:80px;"></div>
           🎨
@@ -1735,7 +1792,7 @@
         </div>
       </div>
 
-      <div class="course-card">
+      <div class="course-card" data-aos="fade-up" data-aos-delay="0">
         <div class="course-thumb course-thumb-4">
           <div class="glow-circle" style="background:rgba(0,242,255,0.3);top:10px;left:30px;width:80px;height:80px;"></div>
           📊
@@ -1754,7 +1811,7 @@
         </div>
       </div>
 
-      <div class="course-card">
+      <div class="course-card" data-aos="fade-up" data-aos-delay="100">
         <div class="course-thumb course-thumb-5">
           <div class="glow-circle" style="background:rgba(0,242,255,0.3);bottom:10px;left:20px;width:80px;height:80px;"></div>
           💼
@@ -1774,7 +1831,7 @@
       </div>
 
       <!-- CTA Card -->
-      <div class="course-card" style="background:linear-gradient(135deg,rgba(168,85,247,0.1),rgba(0,242,255,0.1));border-color:var(--border-cyan);display:flex;align-items:center;justify-content:center;min-height:300px;">
+      <div class="course-card" data-aos="fade-up" data-aos-delay="200" style="background:linear-gradient(135deg,rgba(168,85,247,0.1),rgba(0,242,255,0.1));border-color:var(--border-cyan);display:flex;align-items:center;justify-content:center;min-height:300px;">
         <div style="text-align:center;padding:40px;">
           <div style="font-size:48px;margin-bottom:16px;">🌐</div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:var(--text-primary);margin-bottom:12px;">More Courses Coming</div>
@@ -1788,51 +1845,53 @@
 </section>
 
 <!-- ═══════════════ LMS FEATURES ═══════════════ -->
-<section id="lms">
+<section id="lms" class="sec-visual">
+  <canvas class="sec-visual-canvas" id="canvas-lms"></canvas>
   <div class="container">
-    <div class="text-center">
+    <div class="text-center" data-aos="fade-up">
       <span class="section-label">Platform</span>
       <h2 class="section-title">A Smarter Way to Learn</h2>
       <p class="section-desc">Our advanced LMS gives you everything you need to learn effectively and grow consistently.</p>
     </div>
     <div class="lms-grid">
-      <div class="lms-card"><span class="lms-icon">🎬</span><div class="lms-title">HD Video Lessons</div><p class="lms-desc">Structured lessons designed for better understanding and retention.</p></div>
-      <div class="lms-card"><span class="lms-icon">📈</span><div class="lms-title">Progress Tracking</div><p class="lms-desc">Track your learning journey and course completion in real time.</p></div>
-      <div class="lms-card"><span class="lms-icon">📝</span><div class="lms-title">Assignments & Quizzes</div><p class="lms-desc">Reinforce learning through assessments and regular practice.</p></div>
-      <div class="lms-card"><span class="lms-icon">📥</span><div class="lms-title">Downloadable Resources</div><p class="lms-desc">Access templates, files, and supporting materials anytime.</p></div>
-      <div class="lms-card"><span class="lms-icon">🎤</span><div class="lms-title">Live Mentorship</div><p class="lms-desc">Learn directly from mentors and industry experts in live sessions.</p></div>
-      <div class="lms-card"><span class="lms-icon">👥</span><div class="lms-title">Community Access</div><p class="lms-desc">Connect with fellow learners, ask questions, and grow together.</p></div>
-      <div class="lms-card"><span class="lms-icon">🏅</span><div class="lms-title">Certificate of Completion</div><p class="lms-desc">Showcase your achievement with professional certifications.</p></div>
-      <div class="lms-card"><span class="lms-icon">📱</span><div class="lms-title">Mobile-Friendly</div><p class="lms-desc">Access your courses anytime, anywhere — on any device.</p></div>
+      <div class="lms-card" data-aos="zoom-in" data-aos-delay="0"><span class="lms-icon">🎬</span><div class="lms-title">HD Video Lessons</div><p class="lms-desc">Structured lessons designed for better understanding and retention.</p></div>
+      <div class="lms-card" data-aos="zoom-in" data-aos-delay="50"><span class="lms-icon">📈</span><div class="lms-title">Progress Tracking</div><p class="lms-desc">Track your learning journey and course completion in real time.</p></div>
+      <div class="lms-card" data-aos="zoom-in" data-aos-delay="100"><span class="lms-icon">📝</span><div class="lms-title">Assignments & Quizzes</div><p class="lms-desc">Reinforce learning through assessments and regular practice.</p></div>
+      <div class="lms-card" data-aos="zoom-in" data-aos-delay="150"><span class="lms-icon">📥</span><div class="lms-title">Downloadable Resources</div><p class="lms-desc">Access templates, files, and supporting materials anytime.</p></div>
+      <div class="lms-card" data-aos="zoom-in" data-aos-delay="0"><span class="lms-icon">🎤</span><div class="lms-title">Live Mentorship</div><p class="lms-desc">Learn directly from mentors and industry experts in live sessions.</p></div>
+      <div class="lms-card" data-aos="zoom-in" data-aos-delay="50"><span class="lms-icon">👥</span><div class="lms-title">Community Access</div><p class="lms-desc">Connect with fellow learners, ask questions, and grow together.</p></div>
+      <div class="lms-card" data-aos="zoom-in" data-aos-delay="100"><span class="lms-icon">🏅</span><div class="lms-title">Certificate of Completion</div><p class="lms-desc">Showcase your achievement with professional certifications.</p></div>
+      <div class="lms-card" data-aos="zoom-in" data-aos-delay="150"><span class="lms-icon">📱</span><div class="lms-title">Mobile-Friendly</div><p class="lms-desc">Access your courses anytime, anywhere — on any device.</p></div>
     </div>
   </div>
 </section>
 
 <!-- ═══════════════ JOURNEY ═══════════════ -->
-<section id="journey">
+<section id="journey" class="sec-visual">
+  <canvas class="sec-visual-canvas" id="canvas-journey"></canvas>
   <div class="container">
-    <div class="text-center">
+    <div class="text-center" data-aos="fade-up">
       <span class="section-label">How It Works</span>
       <h2 class="section-title">Your AI Learning Journey</h2>
       <p class="section-desc">Four clear steps from zero to certified AI practitioner.</p>
     </div>
     <div class="journey-steps">
-      <div class="journey-step">
+      <div class="journey-step" data-aos="fade-up" data-aos-delay="0">
         <div class="step-num">01</div>
         <div class="step-title">Choose Your Course</div>
         <p class="step-desc">Select the learning path that matches your goals and current skill level.</p>
       </div>
-      <div class="journey-step">
+      <div class="journey-step" data-aos="fade-up" data-aos-delay="100">
         <div class="step-num">02</div>
         <div class="step-title">Learn with Experts</div>
         <p class="step-desc">Attend structured lessons and mentor-led interactive sessions.</p>
       </div>
-      <div class="journey-step">
+      <div class="journey-step" data-aos="fade-up" data-aos-delay="200">
         <div class="step-num">03</div>
         <div class="step-title">Build Real Projects</div>
         <p class="step-desc">Apply your skills through practical assignments and real implementations.</p>
       </div>
-      <div class="journey-step">
+      <div class="journey-step" data-aos="fade-up" data-aos-delay="300">
         <div class="step-num">04</div>
         <div class="step-title">Get Certified</div>
         <p class="step-desc">Complete the program and showcase your expertise with a certificate.</p>
@@ -1844,14 +1903,15 @@
 <div class="gradient-line"></div>
 
 <!-- ═══════════════ TESTIMONIALS ═══════════════ -->
-<section id="testimonials">
+<section id="testimonials" class="sec-visual">
+  <canvas class="sec-visual-canvas" id="canvas-testimonials"></canvas>
   <div class="container">
-    <div class="text-center">
+    <div class="text-center" data-aos="fade-up">
       <span class="section-label">Reviews</span>
       <h2 class="section-title">What Our Students Say</h2>
     </div>
     <div class="testi-grid">
-      <div class="testi-card">
+      <div class="testi-card" data-aos="fade-up" data-aos-delay="0">
         <div class="testi-stars">★★★★★</div>
         <p class="testi-text">"AI Hub made learning Artificial Intelligence simple and practical. The structured learning helped me gain confidence in AI tools I now use daily."</p>
         <div class="testi-author">
@@ -1862,7 +1922,7 @@
           </div>
         </div>
       </div>
-      <div class="testi-card">
+      <div class="testi-card" data-aos="fade-up" data-aos-delay="150">
         <div class="testi-stars">★★★★★</div>
         <p class="testi-text">"The mentors explained difficult concepts in an easy way. I learned practical AI tools I can actually use in my work every single day."</p>
         <div class="testi-author">
@@ -1873,7 +1933,7 @@
           </div>
         </div>
       </div>
-      <div class="testi-card">
+      <div class="testi-card" data-aos="fade-up" data-aos-delay="300">
         <div class="testi-stars">★★★★★</div>
         <p class="testi-text">"The project-based learning model helped me understand real-world AI applications quickly. Worth every minute invested."</p>
         <div class="testi-author">
@@ -1889,10 +1949,10 @@
 </section>
 
 <!-- ═══════════════ CAREER IMPACT ═══════════════ -->
-<section id="career">
+<section id="career" class="sec-visual">
   <div class="container">
     <div class="career-grid">
-      <div>
+      <div data-aos="fade-right">
         <span class="section-label">Career Impact</span>
         <h2 class="section-title">Build Skills for the Future</h2>
         <p class="section-desc" style="margin-bottom:32px;">Artificial Intelligence is transforming industries across the world. AI Hub prepares you with practical knowledge to stay ahead in a rapidly changing digital landscape.</p>
@@ -1905,7 +1965,7 @@
           <div class="career-skill"><span class="ck-dot"></span>Future Tech Careers</div>
         </div>
       </div>
-      <div class="career-visual">
+      <div class="career-visual" data-aos="fade-left">
         <div class="career-ring">
           <div class="career-ring-inner">
             <div class="career-ring-core">
@@ -1913,10 +1973,16 @@
             </div>
           </div>
           <!-- Orbit dots -->
-          <div style="position:absolute;width:12px;height:12px;border-radius:50%;background:var(--cyan);top:-6px;left:50%;transform:translateX(-50%);box-shadow:0 0 8px var(--cyan);"></div>
-          <div style="position:absolute;width:10px;height:10px;border-radius:50%;background:var(--purple);bottom:-5px;left:50%;transform:translateX(-50%);box-shadow:0 0 8px var(--purple);"></div>
-          <div style="position:absolute;width:8px;height:8px;border-radius:50%;background:var(--cyan);left:-4px;top:50%;transform:translateY(-50%);box-shadow:0 0 6px var(--cyan);"></div>
-          <div style="position:absolute;width:8px;height:8px;border-radius:50%;background:var(--purple);right:-4px;top:50%;transform:translateY(-50%);box-shadow:0 0 6px var(--purple);"></div>
+           
+           <div class="Orbit ">         
+             <div  style="position:absolute;width:25px;height:10px;border-radius:50%;background:var(--cyan);top:-6px;left:50%;transform:translateX(-50%);box-shadow:-10px 0 8px var(--cyan);"></div>
+
+             <div  style="position:absolute;width:30px;height:10px;border-radius:50%;background:var(--purple);bottom:-5px;left:50%;transform:translateX(-50%);box-shadow:10px 0 8px var(--purple);"></div>
+          <div  style="position:absolute;width:55px;height:55px;border-radius:50%;background:var(--cyan);left:-4px;top:50%;transform:translateY(-50%);box-shadow:0 0 60px var(--cyan);"></div>
+          <div  style="position:absolute;width:55px;height:55px;border-radius:50%;background:var(--purple);right:-4px;top:50%;transform:translateY(-50%);box-shadow:0 0 60px var(--purple);"></div>
+           </div>" 
+           
+          
         </div>
       </div>
     </div>
@@ -1924,42 +1990,43 @@
 </section>
 
 <!-- ═══════════════ FAQ ═══════════════ -->
-<section id="faq">
+<section id="faq" class="sec-visual">
+  <canvas class="sec-visual-canvas" id="canvas-faq"></canvas>
   <div class="container">
-    <div class="text-center">
+    <div class="text-center" data-aos="fade-up">
       <span class="section-label">Help</span>
       <h2 class="section-title">Frequently Asked Questions</h2>
     </div>
     <div class="faq-list">
-      <div class="faq-item">
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="0">
         <button class="faq-q" onclick="toggleFaq(this)">
           Do I need prior technical knowledge?
           <span class="faq-arrow">+</span>
         </button>
         <div class="faq-a">No. Many of our programs are beginner-friendly and designed for learners from all backgrounds — no coding or technical experience required to start.</div>
       </div>
-      <div class="faq-item">
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="60">
         <button class="faq-q" onclick="toggleFaq(this)">
           Will I get practical experience?
           <span class="faq-arrow">+</span>
         </button>
         <div class="faq-a">Yes. Our courses include real-world projects, assignments, and practical implementation exercises so you build skills, not just knowledge.</div>
       </div>
-      <div class="faq-item">
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="120">
         <button class="faq-q" onclick="toggleFaq(this)">
           Are the classes live or recorded?
           <span class="faq-arrow">+</span>
         </button>
         <div class="faq-a">Depending on the program, we offer both live mentorship sessions and recorded learning so you can learn at your own pace.</div>
       </div>
-      <div class="faq-item">
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="180">
         <button class="faq-q" onclick="toggleFaq(this)">
           Will I receive certification?
           <span class="faq-arrow">+</span>
         </button>
         <div class="faq-a">Yes. Students receive professional certificates after successful completion of their program to strengthen their career profile.</div>
       </div>
-      <div class="faq-item">
+      <div class="faq-item" data-aos="fade-up" data-aos-delay="240">
         <button class="faq-q" onclick="toggleFaq(this)">
           Can working professionals join?
           <span class="faq-arrow">+</span>
@@ -1971,9 +2038,10 @@
 </section>
 
 <!-- ═══════════════ FINAL CTA ═══════════════ -->
-<section id="final-cta">
+<section id="final-cta" class="sec-visual">
+  <canvas class="sec-visual-canvas" id="canvas-final-cta"></canvas>
   <div class="container" style="display:flex;justify-content:center;">
-    <div class="cta-box">
+    <div class="cta-box" data-aos="zoom-in">
       <h2 class="section-title">Ready to Build Your Future with AI?</h2>
       <p class="section-desc">The future belongs to people who understand and use Artificial Intelligence. Start your journey today with practical learning, mentorship, and real-world implementation.</p>
       <div class="cta-btns">
@@ -2380,5 +2448,389 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+
+<!-- ═══════════════ THREE.JS + AOS LIBRARIES ═══════════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+
+<!-- ═══════════════ SECTION VISUALS (ONE PER SECTION) ═══════════════ -->
+<script>
+(function () {
+  if (typeof THREE === 'undefined') return;
+
+  var CYAN = 0x00f2ff;
+  var PURPLE = 0xa855f7;
+  var clock = new THREE.Clock();
+  var registry = []; // { canvas, renderer, scene, camera, update, running }
+
+  function makeRenderer(canvas) {
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    return renderer;
+  }
+
+  function makeCamera(w, h) {
+    var camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 1000);
+    camera.position.z = 26;
+    return camera;
+  }
+
+  function sizeToParent(canvas) {
+    var parent = canvas.parentElement;
+    var w = parent.clientWidth || 300;
+    var h = parent.clientHeight || 300;
+    return { w: w, h: h };
+  }
+
+  function registerScene(id, buildFn) {
+    var canvas = document.getElementById(id);
+    if (!canvas) return;
+    var size = sizeToParent(canvas);
+    var renderer = makeRenderer(canvas);
+    renderer.setSize(size.w, size.h, false);
+    var scene = new THREE.Scene();
+    var camera = makeCamera(size.w, size.h);
+    var update = buildFn(scene, camera, renderer);
+
+    var entry = { canvas: canvas, renderer: renderer, scene: scene, camera: camera, update: update, running: false };
+    registry.push(entry);
+
+    var resizeObserver = new ResizeObserver(function () {
+      var s = sizeToParent(canvas);
+      if (s.w < 2 || s.h < 2) return;
+      renderer.setSize(s.w, s.h, false);
+      camera.aspect = s.w / s.h;
+      camera.updateProjectionMatrix();
+    });
+    resizeObserver.observe(canvas.parentElement);
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        entry.running = e.isIntersecting;
+      });
+    }, { threshold: 0.1 });
+    io.observe(canvas);
+  }
+
+  function animate() {
+    var dt = clock.getDelta();
+    var elapsed = clock.elapsedTime;
+    registry.forEach(function (entry) {
+      if (!entry.running) return;
+      entry.update(dt, elapsed);
+      entry.renderer.render(entry.scene, entry.camera);
+    });
+    requestAnimationFrame(animate);
+  }
+
+  
+  
+  /* ───────── 2. ABOUT — Holographic Globe ───────── */
+  function buildGlobe(scene, camera) {
+    var group = new THREE.Group();
+    scene.add(group);
+
+    var wireGeo = new THREE.SphereGeometry(8, 24, 18);
+    var wireMat = new THREE.MeshBasicMaterial({ color: CYAN, wireframe: true, transparent: true, opacity: 0.35 });
+    var wireSphere = new THREE.Mesh(wireGeo, wireMat);
+    group.add(wireSphere);
+
+    var coreGeo = new THREE.SphereGeometry(7.6, 24, 18);
+    var coreMat = new THREE.MeshBasicMaterial({ color: PURPLE, wireframe: false, transparent: true, opacity: 0.05 });
+    group.add(new THREE.Mesh(coreGeo, coreMat));
+
+    var ringGeo = new THREE.RingGeometry(9.2, 9.4, 64);
+    var ringMat = new THREE.MeshBasicMaterial({ color: CYAN, transparent: true, opacity: 0.25, side: THREE.DoubleSide });
+    var ring1 = new THREE.Mesh(ringGeo, ringMat);
+    ring1.rotation.x = Math.PI / 2.2;
+    group.add(ring1);
+    var ring2 = new THREE.Mesh(ringGeo, ringMat.clone());
+    ring2.material.color.set(PURPLE);
+    ring2.rotation.x = Math.PI / 1.6;
+    ring2.rotation.y = Math.PI / 4;
+    group.add(ring2);
+
+    var dotCount = 40;
+    var dotGeo = new THREE.SphereGeometry(0.12, 6, 6);
+    var dotMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    for (var i = 0; i < dotCount; i++) {
+      var phi = Math.acos(2 * Math.random() - 1);
+      var theta = Math.random() * Math.PI * 2;
+      var r = 8;
+      var dot = new THREE.Mesh(dotGeo, dotMat);
+      dot.position.set(
+        r * Math.sin(phi) * Math.cos(theta),
+        r * Math.sin(phi) * Math.sin(theta),
+        r * Math.cos(phi)
+      );
+      group.add(dot);
+    }
+
+    camera.position.set(0, 0, 24);
+
+    return function (dt, elapsed) {
+      group.rotation.y = elapsed * 0.25;
+      wireSphere.rotation.x = elapsed * 0.08;
+      ring1.rotation.z = elapsed * 0.3;
+      ring2.rotation.z = -elapsed * 0.22;
+    };
+  }
+
+  /* ───────── 3. WHY — Animated Particle Field ───────── */
+  function buildParticles(scene, camera) {
+    var count = 220;
+    var positions = new Float32Array(count * 3);
+    var speeds = new Float32Array(count);
+    for (var i = 0; i < count; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 50;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 30;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
+      speeds[i] = 0.3 + Math.random() * 0.7;
+    }
+    var geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    var mat = new THREE.PointsMaterial({ color: CYAN, size: 0.28, transparent: true, opacity: 0.7 });
+    var points = new THREE.Points(geo, mat);
+    scene.add(points);
+
+    var mat2 = new THREE.PointsMaterial({ color: PURPLE, size: 0.2, transparent: true, opacity: 0.5 });
+    var points2 = new THREE.Points(geo.clone(), mat2);
+    points2.position.x = 2;
+    scene.add(points2);
+
+    camera.position.set(0, 0, 22);
+
+    return function (dt, elapsed) {
+      var pos = geo.attributes.position.array;
+      for (var i = 0; i < count; i++) {
+        pos[i * 3 + 1] += dt * speeds[i] * 1.2;
+        if (pos[i * 3 + 1] > 15) pos[i * 3 + 1] = -15;
+      }
+      geo.attributes.position.needsUpdate = true;
+      points.rotation.y = elapsed * 0.04;
+      points2.rotation.y = -elapsed * 0.03;
+    };
+  }
+
+  
+  /* ───────── 5. LMS — Floating Particle Ring ───────── */
+  function buildParticleRing(scene, camera) {
+    var group = new THREE.Group();
+    scene.add(group);
+
+    var centerGeo = new THREE.SphereGeometry(1.4, 16, 16);
+    var centerMat = new THREE.MeshBasicMaterial({ color: CYAN, transparent: true, opacity: 0.5, wireframe: true });
+    group.add(new THREE.Mesh(centerGeo, centerMat));
+
+    var ringCount = 70;
+    var ringGeo = new THREE.BufferGeometry();
+    var positions = new Float32Array(ringCount * 3);
+    var radii = [];
+    for (var i = 0; i < ringCount; i++) {
+      var angle = (i / ringCount) * Math.PI * 2;
+      var r = 7 + Math.sin(i * 0.5) * 1.2;
+      radii.push({ angle: angle, r: r, y: (Math.random() - 0.5) * 1.5 });
+      positions[i * 3] = Math.cos(angle) * r;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 1.5;
+      positions[i * 3 + 2] = Math.sin(angle) * r;
+    }
+    ringGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    var ringMat = new THREE.PointsMaterial({ color: PURPLE, size: 0.32, transparent: true, opacity: 0.85 });
+    var ringPoints = new THREE.Points(ringGeo, ringMat);
+    group.add(ringPoints);
+
+    camera.position.set(0, 10, 20);
+    camera.lookAt(0, 0, 0);
+
+    return function (dt, elapsed) {
+      group.rotation.y = elapsed * 0.18;
+      var pos = ringGeo.attributes.position.array;
+      radii.forEach(function (item, i) {
+        var a = item.angle + elapsed * 0.05;
+        pos[i * 3] = Math.cos(a) * item.r;
+        pos[i * 3 + 2] = Math.sin(a) * item.r;
+        pos[i * 3 + 1] = item.y + Math.sin(elapsed * 1.5 + i) * 0.4;
+      });
+      ringGeo.attributes.position.needsUpdate = true;
+    };
+  }
+
+  /* ───────── 6. JOURNEY — Connected Path of Dots ───────── */
+  function buildJourneyPath(scene, camera) {
+    var group = new THREE.Group();
+    scene.add(group);
+
+    var pathPoints = [];
+    var count = 4;
+    for (var i = 0; i < count; i++) {
+      var x = (i - (count - 1) / 2) * 11;
+      var y = Math.sin(i * 1.4) * 3;
+      pathPoints.push(new THREE.Vector3(x, y, 0));
+    }
+
+    var curve = new THREE.CatmullRomCurve3(pathPoints);
+    var curvePts = curve.getPoints(100);
+    var lineGeo = new THREE.BufferGeometry().setFromPoints(curvePts);
+    var lineMat = new THREE.LineBasicMaterial({ color: CYAN, transparent: true, opacity: 0.4 });
+    group.add(new THREE.Line(lineGeo, lineMat));
+
+    var nodeGeo = new THREE.SphereGeometry(0.6, 16, 16);
+    var nodeMeshes = [];
+    pathPoints.forEach(function (p, i) {
+      var mat = new THREE.MeshBasicMaterial({ color: i % 2 === 0 ? CYAN : PURPLE });
+      var mesh = new THREE.Mesh(nodeGeo, mat);
+      mesh.position.copy(p);
+      group.add(mesh);
+      nodeMeshes.push(mesh);
+    });
+
+    var travelerGeo = new THREE.SphereGeometry(0.35, 12, 12);
+    var travelerMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    var traveler = new THREE.Mesh(travelerGeo, travelerMat);
+    group.add(traveler);
+
+    camera.position.set(0, 0, 26);
+
+    return function (dt, elapsed) {
+      nodeMeshes.forEach(function (m, i) {
+        m.scale.setScalar(1 + Math.sin(elapsed * 2 + i * 2) * 0.15);
+      });
+      var t = (elapsed * 0.08) % 1;
+      var p = curve.getPointAt(t);
+      traveler.position.copy(p);
+      group.rotation.x = Math.sin(elapsed * 0.1) * 0.05;
+    };
+  }
+
+  /* ───────── 7. TESTIMONIALS — Slow Starfield ───────── */
+  function buildStarfield(scene, camera) {
+    var count = 300;
+    var positions = new Float32Array(count * 3);
+    for (var i = 0; i < count; i++) {
+      var radius = 10 + Math.random() * 30;
+      var theta = Math.random() * Math.PI * 2;
+      var phi = Math.acos(2 * Math.random() - 1);
+      positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
+      positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+      positions[i * 3 + 2] = radius * Math.cos(phi) - 10;
+    }
+    var geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    var mat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.22, transparent: true, opacity: 0.8 });
+    var stars = new THREE.Points(geo, mat);
+    scene.add(stars);
+
+    var mat2 = new THREE.PointsMaterial({ color: CYAN, size: 0.3, transparent: true, opacity: 0.5 });
+    var stars2 = new THREE.Points(geo.clone(), mat2);
+    stars2.scale.setScalar(0.6);
+    scene.add(stars2);
+
+    camera.position.set(0, 0, 20);
+
+    return function (dt, elapsed) {
+      stars.rotation.y = elapsed * 0.02;
+      stars.rotation.x = elapsed * 0.008;
+      stars2.rotation.y = -elapsed * 0.015;
+    };
+  }
+
+  
+  /* ───────── 9. FAQ — Drifting Calm Particles ───────── */
+  function buildDriftingParticles(scene, camera) {
+    var count = 90;
+    var positions = new Float32Array(count * 3);
+    var drift = [];
+    for (var i = 0; i < count; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 40;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 24;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 16;
+      drift.push({ x: (Math.random() - 0.5) * 0.4, y: (Math.random() - 0.5) * 0.4 });
+    }
+    var geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    var mat = new THREE.PointsMaterial({ color: CYAN, size: 0.3, transparent: true, opacity: 0.45 });
+    var points = new THREE.Points(geo, mat);
+    scene.add(points);
+
+    camera.position.set(0, 0, 20);
+
+    return function (dt, elapsed) {
+      var pos = geo.attributes.position.array;
+      for (var i = 0; i < count; i++) {
+        pos[i * 3] += drift[i].x * dt;
+        pos[i * 3 + 1] += drift[i].y * dt;
+        if (pos[i * 3] > 20) pos[i * 3] = -20;
+        if (pos[i * 3] < -20) pos[i * 3] = 20;
+        if (pos[i * 3 + 1] > 12) pos[i * 3 + 1] = -12;
+        if (pos[i * 3 + 1] < -12) pos[i * 3 + 1] = 12;
+      }
+      geo.attributes.position.needsUpdate = true;
+      points.rotation.z = elapsed * 0.02;
+    };
+  }
+
+  /* ───────── 10. FINAL CTA — Rotating Energy Ring (Torus) ───────── */
+  function buildEnergyRing(scene, camera) {
+    var group = new THREE.Group();
+    scene.add(group);
+
+    var torusGeo = new THREE.TorusGeometry(6, 0.25, 16, 80);
+    var torusMat = new THREE.MeshBasicMaterial({ color: CYAN, transparent: true, opacity: 0.55 });
+    var torus = new THREE.Mesh(torusGeo, torusMat);
+    group.add(torus);
+
+    var torus2Geo = new THREE.TorusGeometry(7.2, 0.12, 12, 80);
+    var torus2Mat = new THREE.MeshBasicMaterial({ color: PURPLE, transparent: true, opacity: 0.4 });
+    var torus2 = new THREE.Mesh(torus2Geo, torus2Mat);
+    torus2.rotation.x = Math.PI / 3;
+    group.add(torus2);
+
+    var dotGeo = new THREE.SphereGeometry(0.22, 10, 10);
+    var dotMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    var dots = [];
+    for (var i = 0; i < 10; i++) {
+      var dot = new THREE.Mesh(dotGeo, dotMat);
+      dot.userData = { offset: (i / 10) * Math.PI * 2 };
+      group.add(dot);
+      dots.push(dot);
+    }
+
+    camera.position.set(0, 0, 22);
+
+    return function (dt, elapsed) {
+      torus.rotation.x = elapsed * 0.25;
+      torus.rotation.y = elapsed * 0.15;
+      torus2.rotation.z = -elapsed * 0.3;
+      dots.forEach(function (d) {
+        var t = elapsed * 0.4 + d.userData.offset;
+        d.position.set(Math.cos(t) * 6, Math.sin(t) * 6, Math.sin(t * 2) * 1.5);
+      });
+    };
+  }
+
+  /* ───────── REGISTER ALL SCENES ───────── */
+  
+  registerScene('canvas-about', buildGlobe);
+  registerScene('canvas-why', buildParticles);
+  registerScene('canvas-lms', buildParticleRing);
+  registerScene('canvas-journey', buildJourneyPath);
+  registerScene('canvas-testimonials', buildStarfield);
+  
+  registerScene('canvas-faq', buildDriftingParticles);
+  registerScene('canvas-final-cta', buildEnergyRing);
+
+  animate();
+})();
+
+if (typeof AOS !== 'undefined') {
+  AOS.init({
+    duration: 700,
+    once: true,
+    offset: 60,
+    easing: 'ease-out-cubic'
+  });
+}
+</script>
+
 </body>
 </html>
