@@ -2640,8 +2640,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var count = 4;
     for (var i = 0; i < count; i++) {
       var x = (i - (count - 1) / 2) * 11;
-      var y = Math.sin(i * 1.4) * 3;
-      pathPoints.push(new THREE.Vector3(x, y, 0));
+      pathPoints.push(new THREE.Vector3(x, 0, 0));
     }
 
     var curve = new THREE.CatmullRomCurve3(pathPoints);
@@ -2660,7 +2659,7 @@ document.addEventListener('DOMContentLoaded', () => {
       nodeMeshes.push(mesh);
     });
 
-    var travelerGeo = new THREE.SphereGeometry(0.35, 12, 12);
+    var travelerGeo = new THREE.SphereGeometry(0.5, 12, 12);
     var travelerMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
     var traveler = new THREE.Mesh(travelerGeo, travelerMat);
     group.add(traveler);
@@ -2671,7 +2670,7 @@ document.addEventListener('DOMContentLoaded', () => {
       nodeMeshes.forEach(function (m, i) {
         m.scale.setScalar(1 + Math.sin(elapsed * 2 + i * 2) * 0.15);
       });
-      var t = (elapsed * 0.08) % 1;
+      var t = (elapsed * 0.2) % 1;
       var p = curve.getPointAt(t);
       traveler.position.copy(p);
       group.rotation.x = Math.sin(elapsed * 0.1) * 0.05;
