@@ -1,0 +1,130 @@
+﻿Diagnose log at 2026-06-22T06:49:05Z
+
+AppPath: C:\Program Files\Git\mingw64\bin\git-credential-manager.exe
+InstallDir: C:\Program Files\Git\mingw64\bin\
+Version: 2.7.3+5fa7116896c82164996a609accd1c5ad90fe730a
+
+------------
+Diagnostic: Environment
+Skipped: False
+Success: True
+Exception: None
+Log:
+OSType: Windows
+OSVersion: 10.0 (build 26200)
+Reading environment variables... OK
+ Variables:
+OneDriveConsumer=C:\Users\harik\OneDrive
+ProgramFiles(x86)=C:\Program Files (x86)
+MSYSTEM=MINGW64
+ProgramW6432=C:\Program Files
+EXEPATH=C:\Program Files\Git
+ORIGINAL_PATH=C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\harik\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Users\harik\AppData\Local\Microsoft\WindowsApps;C:\Program Files\MongoDB\Server\6.0\bin;C:\Program Files\MongoDB\shell\mongosh\bin;C:\Users\harik\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\harik\AppData\Roaming\npm
+PKG_CONFIG_SYSTEM_LIBRARY_PATH=C:/Program Files/Git/mingw64/lib
+APPDATA=C:\Users\harik\AppData\Roaming
+TMP=C:\Users\harik\AppData\Local\Temp
+PROCESSOR_ARCHITECTURE=AMD64
+INFOPATH=C:\Program Files\Git\mingw64\local\info;C:\Program Files\Git\mingw64\share\info;C:\Program Files\Git\usr\local\info;C:\Program Files\Git\usr\share\info;C:\Program Files\Git\usr\info;C:\Program Files\Git\share\info
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+ProgramData=C:\ProgramData
+PWD=C:/Users/harik/cloude ai hub/AIhub 1
+CONFIG_SITE=C:/Program Files/Git/etc/config.site
+PROCESSOR_REVISION=8c01
+OLDPWD=C:/Users/harik
+TEMP=C:\Users\harik\AppData\Local\Temp
+USERPROFILE=C:\Users\harik
+PKG_CONFIG_PATH=C:\Program Files\Git\mingw64\lib\pkgconfig;C:\Program Files\Git\mingw64\share\pkgconfig
+LOGONSERVER=\\LENOVOKING
+TERM=xterm
+USERNAME=harik
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 140 Stepping 1, GenuineIntel
+GIT_EXEC_PATH=C:/Program Files/Git/mingw64/libexec/git-core
+PLINK_PROTOCOL=ssh
+COMMONPROGRAMFILES=C:\Program Files\Common Files
+_=C:/Program Files/Git/mingw64/bin/git
+PATH=C:/Program Files/Git/mingw64/libexec/git-core;C:\Users\harik\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\harik\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Users\harik\AppData\Local\Microsoft\WindowsApps;C:\Program Files\MongoDB\Server\6.0\bin;C:\Program Files\MongoDB\shell\mongosh\bin;C:\Users\harik\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\harik\AppData\Roaming\npm;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+OneDrive=C:\Users\harik\OneDrive
+LOCALAPPDATA=C:\Users\harik\AppData\Local
+MSYSTEM_CARCH=x86_64
+CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files
+ZES_ENABLE_SYSMAN=1
+EFC_12524_1592913036=1
+PROCESSOR_LEVEL=6
+MINGW_CHOST=x86_64-w64-mingw32
+HOSTNAME=Lenovoking
+PKG_CONFIG_SYSTEM_INCLUDE_PATH=C:/Program Files/Git/mingw64/include
+HOMEPATH=\Users\harik
+DISPLAY=needs-to-be-defined
+IGCCSVC_DB=AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAkvV2TxyKP0GgHOI6lNVcdwQAAAACAAAAAAAQZgAAAAEAACAAAAD3Cfhr34f27k0fvTQLzpAxIYjwJlYTOffDqIs3+WQBZgAAAAAOgAAAAAIAACAAAADbPsfpSZSb5CnJlNj2VO5iXO8EMtdkeL7DY6T0bmyH6mAAAAD0Fp49of/QYljeWkByK5c1AjzxrIWRmYE+Q3kO5GmW3g9dsHLMxmibUfG7P7eS1AP52Fp0k0/0EcfWsAAYAsAEZp39h05lh9kkoXk0IXzgK7bPHclt3/XWWXCCeDBKXfdAAAAALqgWD2y7daecKjbVp9lgdkDeBPiYLayKRK4lxLErNWG0Q2J9XqeO4WSIId1K5TbX2W3oVzT8jx9gVUfwVi/nZA==
+MANPATH=C:\Program Files\Git\mingw64\local\man;C:\Program Files\Git\mingw64\share\man;C:\Program Files\Git\usr\local\man;C:\Program Files\Git\usr\share\man;C:\Program Files\Git\usr\man;C:\Program Files\Git\share\man
+WINDIR=C:\WINDOWS
+USERDOMAIN=LENOVOKING
+ORIGINAL_TMP=C:/Users/harik/AppData/Local/Temp
+ALLUSERSPROFILE=C:\ProgramData
+CommonProgramW6432=C:\Program Files\Common Files
+SYSTEMROOT=C:\WINDOWS
+SHELL=C:\Program Files\Git\usr\bin\bash.exe
+PROGRAMFILES=C:\Program Files
+SHLVL=1
+SESSIONNAME=Console
+DriverData=C:\Windows\System32\Drivers\DriverData
+HOMEDRIVE=C:
+GIT_TRACE2_PARENT_SID=e981696a-27b7-4db6-9566-1e29bc8f486d
+ACLOCAL_PATH=C:\Program Files\Git\mingw64\share\aclocal;C:\Program Files\Git\usr\share\aclocal
+NUMBER_OF_PROCESSORS=4
+OS=Windows_NT
+MSYSTEM_PREFIX=C:/Program Files/Git/mingw64
+MSYSTEM_CHOST=x86_64-w64-mingw32
+MINGW_PREFIX=C:/Program Files/Git/mingw64
+ORIGINAL_TEMP=C:/Users/harik/AppData/Local/Temp
+HOME=C:\Users\harik
+PSModulePath=C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+SYSTEMDRIVE=C:
+EFC_12524_4126798990=1
+TMPDIR=C:\Users\harik\AppData\Local\Temp
+MINGW_PACKAGE_PREFIX=mingw-w64-x86_64
+PS1=\[\033]0;$TITLEPREFIX:$PWD\007\]\n\[\033[32m\]\u@\h \[\033[35m\]$MSYSTEM \[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\]\n$ 
+COMPUTERNAME=LENOVOKING
+LC_CTYPE=en_US.UTF-8
+SSH_ASKPASS=C:/Program Files/Git/mingw64/bin/git-askpass.exe
+COMSPEC=C:\WINDOWS\system32\cmd.exe
+TERM_PROGRAM_VERSION=3.8.2
+USERDOMAIN_ROAMINGPROFILE=LENOVOKING
+PUBLIC=C:\Users\Public
+TERM_PROGRAM=mintty
+
+
+------------
+Diagnostic: File system
+Skipped: False
+Success: True
+Exception: None
+Log:
+Temporary directory is 'C:\Users\harik\AppData\Local\Temp\'...
+Checking basic file I/O...
+Writing to temporary file 'C:\Users\harik\AppData\Local\Temp\a6304ca5be4e467e637477bf'... OK
+Reading from temporary file 'C:\Users\harik\AppData\Local\Temp\a6304ca5be4e467e637477bf'... OK
+Deleting temporary file 'C:\Users\harik\AppData\Local\Temp\a6304ca5be4e467e637477bf'... OK
+Testing IFileSystem instance...
+UserHomePath: C:\Users\harik
+UserDataDirectoryPath: C:\Users\harik\.gcm
+GetCurrentDirectory(): C:\Users\harik\cloude ai hub\AIhub 1
+
+------------
+Diagnostic: Networking
+Skipped: False
+Success: True
+Exception: None
+Log:
+Checking networking and HTTP stack...
+Creating HTTP client... OK
+IsNetworkAvailable: True
+Sending HEAD request to http://example.com...Sending HEAD request to https://example.com... OK
+Acquiring free TCP port... OK
+Testing local HTTP loopback connections...
+Creating new HTTP listener for http://localhost:63138/... OK
+Waiting for loopback connection... OK
+Writing response... OK
+Waiting for response data... OK
+Loopback connection data OK
+
