@@ -2587,45 +2587,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ───────── 4. COURSES — Orbiting Icosahedron ───────── */
-  function buildIcosahedron(scene, camera) {
-    var group = new THREE.Group();
-    scene.add(group);
-
-    var coreGeo = new THREE.IcosahedronGeometry(5, 0);
-    var coreMat = new THREE.MeshBasicMaterial({ color: CYAN, wireframe: true });
-    var core = new THREE.Mesh(coreGeo, coreMat);
-    group.add(core);
-
-    var innerGeo = new THREE.IcosahedronGeometry(4.6, 0);
-    var innerMat = new THREE.MeshBasicMaterial({ color: PURPLE, transparent: true, opacity: 0.08 });
-    group.add(new THREE.Mesh(innerGeo, innerMat));
-
-    var orbiters = [];
-    var orbGeo = new THREE.OctahedronGeometry(0.5, 0);
-    for (var i = 0; i < 5; i++) {
-      var mat = new THREE.MeshBasicMaterial({ color: i % 2 === 0 ? CYAN : PURPLE });
-      var m = new THREE.Mesh(orbGeo, mat);
-      var radius = 8 + (i % 2);
-      m.userData = { radius: radius, speed: 0.3 + i * 0.12, offset: i * 1.3, tilt: i * 0.6 };
-      group.add(m);
-      orbiters.push(m);
-    }
-
-    camera.position.set(0, 0, 24);
-
-    return function (dt, elapsed) {
-      core.rotation.x = elapsed * 0.2;
-      core.rotation.y = elapsed * 0.3;
-      orbiters.forEach(function (m) {
-        var t = elapsed * m.userData.speed + m.userData.offset;
-        m.position.set(
-          Math.cos(t) * m.userData.radius,
-          Math.sin(t * 0.7 + m.userData.tilt) * 3,
-          Math.sin(t) * m.userData.radius
-        );
-      });
-    };
-  }
+  
 
   /* ───────── 5. LMS — Floating Particle Ring ───────── */
   function buildParticleRing(scene, camera) {
@@ -2869,7 +2831,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
   registerScene('canvas-about', buildGlobe);
   registerScene('canvas-why', buildParticles);
-  registerScene('canvas-courses', buildIcosahedron);
   registerScene('canvas-lms', buildParticleRing);
   registerScene('canvas-journey', buildJourneyPath);
   registerScene('canvas-testimonials', buildStarfield);
