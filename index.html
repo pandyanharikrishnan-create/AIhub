@@ -2497,56 +2497,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ───────── 1. STATS — Rotating Neural Network ───────── */
-  function buildNeuralNetwork(scene, camera) {
-    var group = new THREE.Group();
-    scene.add(group);
-
-    var layers = [4, 6, 6, 4];
-    var layerSpacing = 9;
-    var nodes = [];
-    var nodeMeshes = [];
-
-    var nodeGeo = new THREE.SphereGeometry(0.35, 12, 12);
-    var nodeMatCyan = new THREE.MeshBasicMaterial({ color: CYAN });
-    var nodeMatPurple = new THREE.MeshBasicMaterial({ color: PURPLE });
-
-    layers.forEach(function (count, li) {
-      var layerNodes = [];
-      var x = (li - (layers.length - 1) / 2) * layerSpacing;
-      for (var i = 0; i < count; i++) {
-        var y = (i - (count - 1) / 2) * 3.2;
-        var z = (Math.random() - 0.5) * 3;
-        var pos = new THREE.Vector3(x, y, z);
-        layerNodes.push(pos);
-        var mesh = new THREE.Mesh(nodeGeo, (li % 2 === 0) ? nodeMatCyan : nodeMatPurple);
-        mesh.position.copy(pos);
-        group.add(mesh);
-        nodeMeshes.push(mesh);
-      }
-      nodes.push(layerNodes);
-    });
-
-    var lineMat = new THREE.LineBasicMaterial({ color: CYAN, transparent: true, opacity: 0.18 });
-    for (var li2 = 0; li2 < nodes.length - 1; li2++) {
-      nodes[li2].forEach(function (a) {
-        nodes[li2 + 1].forEach(function (b) {
-          var geo = new THREE.BufferGeometry().setFromPoints([a, b]);
-          group.add(new THREE.Line(geo, lineMat));
-        });
-      });
-    }
-
-    camera.position.set(0, 0, 30);
-
-    return function (dt, elapsed) {
-      group.rotation.y = elapsed * 0.15;
-      group.rotation.x = Math.sin(elapsed * 0.2) * 0.15;
-      nodeMeshes.forEach(function (m, i) {
-        var s = 1 + Math.sin(elapsed * 2 + i) * 0.12;
-        m.scale.setScalar(s);
-      });
-    };
-  }
+  
 
   /* ───────── 2. ABOUT — Holographic Globe ───────── */
   function buildGlobe(scene, camera) {
@@ -2915,7 +2866,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ───────── REGISTER ALL SCENES ───────── */
-  registerScene('canvas-stats', buildNeuralNetwork);
+  
   registerScene('canvas-about', buildGlobe);
   registerScene('canvas-why', buildParticles);
   registerScene('canvas-courses', buildIcosahedron);
