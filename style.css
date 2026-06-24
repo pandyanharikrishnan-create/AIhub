@@ -1,4 +1,4 @@
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
     --cyan: #00f2ff;
@@ -6,11 +6,11 @@
     --dark-bg: #060817;
     --card-bg: rgba(15,18,37,0.6);
     --text-primary: #f8fafc;
-    --text-muted: #94a3b8;
+    --text-muted: #cbd5e1;
     --text-cyan-light: #e1fdff;
-    --border-subtle: rgba(248,250,252,0.1);
-    --border-cyan: rgba(0,242,255,0.3);
-    --border-cyan-half: rgba(0,242,255,0.5);
+    --border-subtle: rgba(248,250,252,0.12);
+    --border-cyan: rgba(0,242,255,0.35);
+    --border-cyan-half: rgba(0,242,255,0.55);
   }
 
   html { scroll-behavior: smooth; }
@@ -23,14 +23,14 @@
     line-height: 1.6;
   }
 
-  /* â”€â”€â”€ BG GRADIENTS â”€â”€â”€ */
+  /* ─── BG GRADIENTS ─── */
   .bg-radial-purple {
     background-image:
-      radial-gradient(ellipse 625px 625px at 20% 20%, rgba(168,85,247,0.15) 0%, transparent 60%),
-      radial-gradient(ellipse 625px 625px at 80% 80%, rgba(0,242,255,0.15) 0%, transparent 60%);
+      radial-gradient(ellipse 700px 700px at 20% 20%, rgba(168,85,247,0.22) 0%, transparent 65%),
+      radial-gradient(ellipse 700px 700px at 80% 80%, rgba(0,242,255,0.18) 0%, transparent 65%);
   }
   .bg-radial-cyan {
-    background-image: radial-gradient(ellipse 700px 400px at 50% 100%, rgba(0,242,255,0.08) 0%, transparent 70%);
+    background-image: radial-gradient(ellipse 800px 500px at 50% 100%, rgba(0,242,255,0.12) 0%, transparent 75%);
   }
 
   /* â”€â”€â”€ TYPOGRAPHY â”€â”€â”€ */
@@ -634,6 +634,16 @@
     filter: blur(30px);
     opacity: 0.6;
   }
+  .course-svg-icon {
+    width: 54px;
+    height: 54px;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), filter 0.35s ease;
+    z-index: 2;
+  }
+  .course-card:hover .course-svg-icon {
+    transform: scale(1.15) rotate(2deg);
+    filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.6));
+  }
   .course-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
   .course-tag {
     font-family: 'JetBrains Mono', monospace;
@@ -1139,8 +1149,7 @@
     .footer-bottom { flex-direction: column; text-align: center; }
   }
 
-<style>
-/* â”€â”€ Overlay â”€â”€ */
+/* ── Overlay ── */
 .cm-overlay {
   position: fixed; inset: 0; z-index: 9999;
   background: rgba(4,6,18,0.85);
