@@ -628,6 +628,12 @@
   .course-thumb-3 { background: linear-gradient(135deg, #1f0030, #4a0050); }
   .course-thumb-4 { background: linear-gradient(135deg, #0a1020, #1a2540); }
   .course-thumb-5 { background: linear-gradient(135deg, #001510, #003020); }
+  .course-thumb-6 { background: linear-gradient(135deg, #1b002c, #3f005c); }
+  .course-thumb-7 { background: linear-gradient(135deg, #0e1e38, #1d3557); }
+  .course-thumb-8 { background: linear-gradient(135deg, #0a1f1d, #14453d); }
+  .course-thumb-9 { background: linear-gradient(135deg, #200f21, #481e4c); }
+  .course-thumb-10 { background: linear-gradient(135deg, #181d0f, #323f18); }
+  .course-thumb-11 { background: linear-gradient(135deg, #28140f, #4d2318); }
   .course-thumb .glow-circle {
     position: absolute;
     width: 100px; height: 100px;
@@ -1243,7 +1249,7 @@
 /* â”€â”€ Form â”€â”€ */
 .cm-form { padding: 28px 32px 24px; }
 .cm-row {
-  display: grid; grid-template-columns: 1fr 1fr;
+  display: grid; grid-template-columns: 1fr;
   gap: 16px; margin-bottom: 16px;
 }
 .cm-field { display: flex; flex-direction: column; gap: 6px; }

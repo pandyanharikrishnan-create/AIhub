@@ -63,35 +63,39 @@ document.addEventListener('keydown', e => {
 
 /* ─── Progress bar ─── */
 function updateProgress() {
-  const fields = ['cf-name','cf-email','cf-phone','cf-city','cf-course','cf-qual','cf-msg'];
-  const radioVal = document.querySelector('input[name="mode"]:checked');
-  let filled = fields.filter(id => document.getElementById(id)?.value.trim()).length;
-  if (radioVal) filled++;
-  const total = fields.length + 1;
+  const fields = ['cf-name', 'cf-phone', 'cf-city', 'cf-course'];
+  let filled = fields.filter(id => {
+    const el = document.getElementById(id);
+    return el && el.value.trim() !== '';
+  }).length;
+  // If email is filled, count it as well (but since it's optional, let's keep progress calculation simple)
+  const emailEl = document.getElementById('cf-email');
+  if (emailEl && emailEl.value.trim() !== '') {
+    filled++;
+  }
+  const total = fields.length + (emailEl ? 1 : 0);
   const bar = document.getElementById('cmProgress');
   if (bar) bar.style.width = `${Math.round((filled/total)*100)}%`;
 }
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('#consultForm .cm-input, #consultForm .cm-select, #consultForm .cm-textarea')
+  document.querySelectorAll('#consultForm .cm-input, #consultForm .cm-select')
     .forEach(el => el.addEventListener('input', updateProgress));
-  document.querySelectorAll('input[name="mode"]')
-    .forEach(el => el.addEventListener('change', updateProgress));
 });
 
 /* ─── Validation ─── */
 const validators = {
   'cf-name':  { fn: v => v.trim().length >= 2, msg: 'Please enter your full name (min 2 chars).' },
-  'cf-email': { fn: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()), msg: 'Please enter a valid email address.' },
+  'cf-email': { fn: v => v.trim() === '' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()), msg: 'Please enter a valid email address.' },
   'cf-phone': { fn: v => /^[6-9]\d{9}$/.test(v.trim()), msg: 'Enter a valid 10-digit Indian mobile number.' },
-  'cf-city':  { fn: v => v.trim().length >= 2, msg: 'Please enter your city.' },
+  'cf-city':  { fn: v => v.trim().length >= 2, msg: 'Please enter your location.' },
   'cf-course':{ fn: v => v !== '', msg: 'Please select a course.' },
-  'cf-qual':  { fn: v => v !== '', msg: 'Please select your qualification.' },
-  'cf-msg':   { fn: v => v.trim().length >= 10, msg: 'Please describe your goal (min 10 chars).' },
 };
 
 function validateField(id) {
   const el = document.getElementById(id);
+  if (!el) return true;
   const err = document.getElementById('err-' + id.replace('cf-',''));
+  if (!err) return true;
   const val = el.value;
   const rule = validators[id];
   if (!rule) return true;
@@ -112,19 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function validateAll() {
   let valid = true;
-  Object.keys(validators).forEach(id => { if (!validateField(id)) valid = false; });
-  // Radio
-  const modeVal = document.querySelector('input[name="mode"]:checked');
-  const modeErr = document.getElementById('err-mode');
-  const modeGroup = document.getElementById('modeGroup');
-  if (!modeVal) {
-    if (modeErr) modeErr.textContent = 'Please select a learning mode.';
-    if (modeGroup) modeGroup.classList.add('cm-invalid-group');
-    valid = false;
-  } else {
-    if (modeErr) modeErr.textContent = '';
-    if (modeGroup) modeGroup.classList.remove('cm-invalid-group');
-  }
+  Object.keys(validators).forEach(id => { 
+    if (document.getElementById(id) && !validateField(id)) valid = false; 
+  });
   return valid;
 }
 
@@ -142,15 +136,17 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     setLoading(true);
+    
+    // Maintain existing backend payload format for compatibility
     const payload = {
       fullName:      document.getElementById('cf-name').value.trim(),
-      email:         document.getElementById('cf-email').value.trim(),
+      email:         document.getElementById('cf-email') ? document.getElementById('cf-email').value.trim() : '',
       phone:         '+91' + document.getElementById('cf-phone').value.trim(),
       city:          document.getElementById('cf-city').value.trim(),
       course:        document.getElementById('cf-course').value,
-      qualification: document.getElementById('cf-qual').value,
-      mode:          document.querySelector('input[name="mode"]:checked').value,
-      message:       document.getElementById('cf-msg').value.trim(),
+      qualification: 'Not specified',
+      mode:          'Not specified',
+      message:       'Not specified',
     };
     try {
       if (!CONSULT_API_URL || CONSULT_API_URL.includes('PASTE_YOUR_GOOGLE_APPS_SCRIPT')) {

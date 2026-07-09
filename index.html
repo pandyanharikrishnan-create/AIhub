@@ -643,6 +643,12 @@
   .course-thumb-3 { background: linear-gradient(135deg, #1f0030, #4a0050); }
   .course-thumb-4 { background: linear-gradient(135deg, #0a1020, #1a2540); }
   .course-thumb-5 { background: linear-gradient(135deg, #001510, #003020); }
+  .course-thumb-6 { background: linear-gradient(135deg, #1b002c, #3f005c); }
+  .course-thumb-7 { background: linear-gradient(135deg, #0e1e38, #1d3557); }
+  .course-thumb-8 { background: linear-gradient(135deg, #0a1f1d, #14453d); }
+  .course-thumb-9 { background: linear-gradient(135deg, #200f21, #481e4c); }
+  .course-thumb-10 { background: linear-gradient(135deg, #181d0f, #323f18); }
+  .course-thumb-11 { background: linear-gradient(135deg, #28140f, #4d2318); }
   .course-thumb .glow-circle {
     position: absolute;
     width: 100px; height: 100px;
@@ -1250,7 +1256,7 @@
 /* ── Form ── */
 .cm-form { padding: 28px 32px 24px; }
 .cm-row {
-  display: grid; grid-template-columns: 1fr 1fr;
+  display: grid; grid-template-columns: 1fr;
   gap: 16px; margin-bottom: 16px;
 }
 .cm-field { display: flex; flex-direction: column; gap: 6px; }
@@ -2200,24 +2206,13 @@
     </div>
 
     <!-- Form -->
-    <form id="consultForm" class="cm-form" novalidate>
-
-      <!-- Row 1: Name + Email -->
+        <form id="consultForm" class="cm-form" novalidate>
       <div class="cm-row">
         <div class="cm-field">
           <label class="cm-label" for="cf-name">Full Name <span class="cm-req">*</span></label>
           <input id="cf-name" name="fullName" type="text" class="cm-input" placeholder="e.g. Rahul Sharma" autocomplete="name" />
           <span class="cm-err" id="err-name"></span>
         </div>
-        <div class="cm-field">
-          <label class="cm-label" for="cf-email">Email Address <span class="cm-req">*</span></label>
-          <input id="cf-email" name="email" type="email" class="cm-input" placeholder="e.g. rahul@email.com" autocomplete="email" />
-          <span class="cm-err" id="err-email"></span>
-        </div>
-      </div>
-
-      <!-- Row 2: Phone + City -->
-      <div class="cm-row">
         <div class="cm-field">
           <label class="cm-label" for="cf-phone">Phone Number <span class="cm-req">*</span></label>
           <div class="cm-phone-wrap">
@@ -2226,14 +2221,7 @@
           </div>
           <span class="cm-err" id="err-phone"></span>
         </div>
-        <div class="cm-field">
-          <label class="cm-label" for="cf-city">City <span class="cm-req">*</span></label>
-          <input id="cf-city" name="city" type="text" class="cm-input" placeholder="e.g. Mumbai" autocomplete="address-level2" />
-          <span class="cm-err" id="err-city"></span>
-        </div>
       </div>
-
-      <!-- Row 3: Course + Qualification -->
       <div class="cm-row">
         <div class="cm-field">
           <label class="cm-label" for="cf-course">Course Interested In <span class="cm-req">*</span></label>
@@ -2245,6 +2233,12 @@
               <option>Generative AI &amp; Content Creation</option>
               <option>Machine Learning Essentials</option>
               <option>AI for Business &amp; Productivity</option>
+              <option>Digital Marketing with AI</option>
+              <option>Digital Analytics with AI</option>
+              <option>Data Analytics with AI</option>
+              <option>Python AI</option>
+              <option>Python Full Stack with AI</option>
+              <option>Java Full Stack with AI</option>
               <option>Not sure yet — Need Guidance</option>
             </select>
             <span class="cm-select-arrow">▾</span>
@@ -2252,61 +2246,21 @@
           <span class="cm-err" id="err-course"></span>
         </div>
         <div class="cm-field">
-          <label class="cm-label" for="cf-qual">Current Qualification <span class="cm-req">*</span></label>
-          <div class="cm-select-wrap">
-            <select id="cf-qual" name="qualification" class="cm-select">
-              <option value="">— Select Qualification —</option>
-              <option>High School (10th / 12th)</option>
-              <option>Pursuing Bachelor's Degree</option>
-              <option>Bachelor's Degree (Graduate)</option>
-              <option>Pursuing Master's Degree</option>
-              <option>Master's Degree (Post-Graduate)</option>
-              <option>Working Professional</option>
-              <option>Business Owner / Entrepreneur</option>
-              <option>Other</option>
-            </select>
-            <span class="cm-select-arrow">▾</span>
-          </div>
-          <span class="cm-err" id="err-qual"></span>
+          <label class="cm-label" for="cf-city">Location <span class="cm-req">*</span></label>
+          <input id="cf-city" name="city" type="text" class="cm-input" placeholder="e.g. Virudhunagar" autocomplete="address-level2" />
+          <span class="cm-err" id="err-city"></span>
         </div>
       </div>
-
-      <!-- Row 4: Learning Mode (full width toggle) -->
       <div class="cm-field cm-field-full">
-        <label class="cm-label">Preferred Learning Mode <span class="cm-req">*</span></label>
-        <div class="cm-toggle-group" id="modeGroup">
-          <label class="cm-toggle">
-            <input type="radio" name="mode" value="Online" />
-            <span class="cm-toggle-label">🌐 Online</span>
-          </label>
-          <label class="cm-toggle">
-            <input type="radio" name="mode" value="Offline" />
-            <span class="cm-toggle-label">🏫 Offline</span>
-          </label>
-          <label class="cm-toggle">
-            <input type="radio" name="mode" value="Hybrid" />
-            <span class="cm-toggle-label">⚡ Hybrid</span>
-          </label>
-        </div>
-        <span class="cm-err" id="err-mode"></span>
+        <label class="cm-label" for="cf-email">Email Address (Optional)</label>
+        <input id="cf-email" name="email" type="email" class="cm-input" placeholder="e.g. rahul@email.com" autocomplete="email" />
+        <span class="cm-err" id="err-email"></span>
       </div>
-
-      <!-- Row 5: Message -->
-      <div class="cm-field cm-field-full">
-        <label class="cm-label" for="cf-msg">Message / Career Goal <span class="cm-req">*</span></label>
-        <textarea id="cf-msg" name="message" class="cm-textarea" rows="3" placeholder="Tell us about your learning goals, current experience, or what you want to achieve..."></textarea>
-        <span class="cm-err" id="err-msg"></span>
-      </div>
-
-      <!-- Honeypot spam field (hidden from users) -->
       <input type="text" name="_honey" class="cm-honey" tabindex="-1" autocomplete="off" />
-
-      <!-- Submit -->
       <button type="submit" class="cm-submit" id="cmSubmitBtn">
         <span id="cmBtnText">🚀 Book My Free Consultation</span>
         <span id="cmBtnLoader" class="cm-loader" style="display:none;"></span>
       </button>
-
       <p class="cm-privacy">🔒 Your information is 100% secure and will never be shared.</p>
     </form>
 
