@@ -254,6 +254,7 @@
   }
   .hero-card-img > img {
     position: relative;
+    top: -40px;
     z-index: 2;
     animation: robotFloat 4.6s ease-in-out infinite;
     transform-origin: center;
