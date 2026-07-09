@@ -652,8 +652,8 @@
     filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.6));
   }
   .course-img-icon {
-    width: 64px;
-    height: 64px;
+    width: 80px;
+    height: 80px;
     object-fit: contain;
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), filter 0.35s ease;
     z-index: 2;
