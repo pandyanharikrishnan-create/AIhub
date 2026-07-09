@@ -1170,12 +1170,12 @@
   opacity: 1; visibility: visible;
 }
 
-/* â”€â”€ Box â”€â”€ */
+/* ── Box ── */
 .cm-box {
   background: #0b0e22;
   border: 1px solid rgba(0,242,255,0.25);
   border-radius: 20px;
-  width: 100%; max-width: 760px;
+  width: 100%; max-width: 480px;
   max-height: 90vh;
   overflow-y: auto;
   overflow-x: hidden;
@@ -1191,10 +1191,10 @@
 .cm-box::-webkit-scrollbar { width: 5px; }
 .cm-box::-webkit-scrollbar-thumb { background: rgba(0,242,255,0.2); border-radius: 10px; }
 
-/* â”€â”€ Header â”€â”€ */
+/* ── Header ── */
 .cm-header {
   display: flex; align-items: flex-start; justify-content: space-between;
-  padding: 28px 32px 20px;
+  padding: 20px 24px 16px;
   border-bottom: 1px solid rgba(255,255,255,0.06);
   background: linear-gradient(135deg, rgba(168,85,247,0.06), rgba(0,242,255,0.04));
   border-radius: 20px 20px 0 0;
@@ -1202,17 +1202,17 @@
 }
 .cm-header-left { display: flex; align-items: flex-start; gap: 14px; }
 .cm-icon {
-  font-size: 28px;
-  width: 52px; height: 52px;
+  font-size: 22px;
+  width: 42px; height: 42px;
   background: linear-gradient(135deg, rgba(168,85,247,0.2), rgba(0,242,255,0.2));
   border: 1px solid rgba(0,242,255,0.3);
-  border-radius: 14px;
+  border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
 .cm-title {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 20px; font-weight: 700;
+  font-size: 17px; font-weight: 700;
   color: #f8fafc; line-height: 1.3;
   background: linear-gradient(90deg, #fff, #00f2ff);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
@@ -1221,13 +1221,13 @@
 }
 .cm-subtitle {
   font-family: 'Outfit', sans-serif;
-  font-size: 13px; color: #94a3b8;
+  font-size: 12px; color: #94a3b8;
 }
 .cm-close {
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
-  color: #94a3b8; font-size: 22px;
-  width: 36px; height: 36px;
+  color: #94a3b8; font-size: 18px;
+  width: 30px; height: 30px;
   border-radius: 8px; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0; transition: all .2s;
@@ -1247,31 +1247,31 @@
 }
 
 /* â”€â”€ Form â”€â”€ */
-.cm-form { padding: 28px 32px 24px; }
+.cm-form { padding: 20px 24px 16px; }
 .cm-row {
   display: grid; grid-template-columns: 1fr;
-  gap: 16px; margin-bottom: 16px;
+  gap: 12px; margin-bottom: 12px;
 }
 .cm-field { display: flex; flex-direction: column; gap: 6px; }
-.cm-field-full { margin-bottom: 16px; }
+.cm-field-full { margin-bottom: 12px; }
 
-/* â”€â”€ Labels â”€â”€ */
+/* ── Labels ── */
 .cm-label {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; font-weight: 500;
+  font-size: 10px; font-weight: 500;
   color: #94a3b8; text-transform: uppercase; letter-spacing: 0.8px;
 }
 .cm-req { color: #f87171; }
 
-/* â”€â”€ Inputs â”€â”€ */
+/* ── Inputs ── */
 .cm-input, .cm-select, .cm-textarea {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 10px;
+  border-radius: 8px;
   color: #f8fafc;
   font-family: 'Outfit', sans-serif;
-  font-size: 14px;
-  padding: 11px 14px;
+  font-size: 13px;
+  padding: 8px 12px;
   outline: none;
   transition: border-color .2s, background .2s, box-shadow .2s;
   width: 100%;
@@ -1288,22 +1288,22 @@
 }
 .cm-textarea { resize: vertical; min-height: 88px; }
 
-/* â”€â”€ Phone â”€â”€ */
+/* ── Phone ── */
 .cm-phone-wrap { display: flex; gap: 0; }
 .cm-phone-prefix {
   background: rgba(0,242,255,0.08);
   border: 1px solid rgba(255,255,255,0.1);
   border-right: none;
-  border-radius: 10px 0 0 10px;
+  border-radius: 8px 0 0 8px;
   color: #00f2ff;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  padding: 11px 10px;
+  font-size: 12px;
+  padding: 8px 10px;
   white-space: nowrap;
 }
-.cm-input-phone { border-radius: 0 10px 10px 0; }
+.cm-input-phone { border-radius: 0 8px 8px 0; }
 
-/* â”€â”€ Select â”€â”€ */
+/* ── Select ── */
 .cm-select-wrap { position: relative; }
 .cm-select {
   -webkit-appearance: none; appearance: none;
@@ -1317,7 +1317,7 @@
   pointer-events: none;
 }
 
-/* â”€â”€ Radio toggles â”€â”€ */
+/* ── Radio toggles ── */
 .cm-toggle-group {
   display: flex; gap: 10px; flex-wrap: wrap;
 }
@@ -1345,29 +1345,29 @@
   border-color: rgba(248,113,113,0.5);
 }
 
-/* â”€â”€ Error messages â”€â”€ */
+/* ── Error messages ── */
 .cm-err {
   font-family: 'Outfit', sans-serif;
-  font-size: 11px; color: #f87171;
-  min-height: 16px;
+  font-size: 10px; color: #f87171;
+  min-height: 14px;
   transition: opacity .2s;
 }
 
-/* â”€â”€ Honeypot â”€â”€ */
+/* ── Honeypot ── */
 .cm-honey {
   position: absolute; left: -9999px;
   opacity: 0; pointer-events: none;
   width: 0; height: 0;
 }
 
-/* â”€â”€ Submit â”€â”€ */
+/* ── Submit ── */
 .cm-submit {
-  width: 100%; padding: 15px 32px;
+  width: 100%; padding: 12px 24px;
   background: linear-gradient(135deg, #a855f7, #00f2ff);
-  border: none; border-radius: 12px;
+  border: none; border-radius: 10px;
   color: #001a1f; font-family: 'JetBrains Mono', monospace;
-  font-size: 15px; font-weight: 700;
-  cursor: pointer; margin-top: 8px;
+  font-size: 14px; font-weight: 700;
+  cursor: pointer; margin-top: 4px;
   display: flex; align-items: center; justify-content: center; gap: 10px;
   transition: opacity .2s, transform .2s;
   box-shadow: 0 8px 32px rgba(0,242,255,0.2);
