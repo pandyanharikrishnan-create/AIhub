@@ -1182,21 +1182,20 @@
   background: #0b0e22;
   border: 1px solid rgba(0,242,255,0.25);
   border-radius: 20px;
-  width: 100%; max-width: 480px;
-  max-height: 90vh;
+  width: 100%; max-width: 350px;
+  height: 700px; max-height: 95vh;
   overflow-y: auto;
   overflow-x: hidden;
   transform: translateY(32px) scale(0.97);
   transition: transform .35s cubic-bezier(.34,1.56,.64,1);
   box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 60px rgba(0,242,255,0.05);
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0,242,255,0.2) transparent;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .cm-overlay.cm-open .cm-box {
   transform: translateY(0) scale(1);
 }
-.cm-box::-webkit-scrollbar { width: 5px; }
-.cm-box::-webkit-scrollbar-thumb { background: rgba(0,242,255,0.2); border-radius: 10px; }
+.cm-box::-webkit-scrollbar { display: none; }
 
 /* ── Header ── */
 .cm-header {
