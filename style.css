@@ -651,6 +651,17 @@
     transform: scale(1.15) rotate(2deg);
     filter: drop-shadow(0 0 15px rgba(0, 242, 255, 0.6));
   }
+  .course-img-icon {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), filter 0.35s ease;
+    z-index: 2;
+  }
+  .course-card:hover .course-img-icon {
+    transform: scale(1.15) rotate(2deg);
+    filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.6));
+  }
   .course-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
   .course-tag {
     font-family: 'JetBrains Mono', monospace;
